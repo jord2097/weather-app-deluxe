@@ -24,7 +24,7 @@ export class ApiClient {
 
      
     getWeather(){
-        return this.getItems("https://api.openweathermap.org/data/2.5/onecall?lat=0&lon=0&units=metric&exclude=hourly,minutely&appid=817b9588cde4ff15fdc254ea056b9c73");
+        return this.getItems("");
     }
 
 
