@@ -13,10 +13,10 @@ import CurrentCard from './CurrentCard'
 
 function App() {
   const [weather, changeWeather] = useState([]);
-  const [city, changeCity] = useState("");
-  const [country, changeCountry] = useState("");
-  const [lat, cLat] = useState(0)   
-  const [lon, cLon] = useState(0)
+  const [city, changeCity] = useState("Sheffield");
+  const [country, changeCountry] = useState("GB");
+  const [lat, cLat] = useState(53.4)   
+  const [lon, cLon] = useState(-1.4)
   const api = new ApiClient();  
   const opencage = require('opencage-api-client')  
 
@@ -32,9 +32,7 @@ function App() {
         cLon(place.geometry.lng)
         changeCity(place.components.city)
         const countryCode = place.components.country_code.toUpperCase()
-        changeCountry(countryCode)
-        
-        
+        changeCountry(countryCode)        
       } else {
         console.log('Status', data.status.message);
         console.log('total_results', data.total_results);
@@ -81,27 +79,42 @@ function App() {
   })
 
 
-  useEffect(() => {  
-       
+  useEffect(() => {       
     api.getWeather(lat, lon)
       .then( (res) => {      
         console.log(res)
         changeWeather(res.data.daily)        
       })
     
-    forwardGeocode("")
     
+  
 
-}, []);
+}, [lat, lon]);
+
+  const handleKeyPress = (e) => {
+    
+    if (e.key === 'Enter') {
+      forwardGeocode(e.target.value)
+    }
+  }
 
   return (
     <Container>
-      <Navbar bg="success" variant="dark">
-        <Navbar.Brand href="#"> Weather in {city} ( {lat}, {lon} ) </Navbar.Brand>
+      {/* <div className="flex flex-col justify-center w-5/6 max-w-xl mx-auto"> */}
+      <Navbar bg="primary" variant="dark">
+        <Navbar.Brand>Weather</Navbar.Brand>
       </Navbar>
-      <main className="m-auto w-5/6 max-w-xl">
-          {buildCurrentCard()}
-      </main>     
+         
+      <div className="REPLACEWITHBGIMAGECHANGER"> 
+        <main className="m-auto w-5/6 max-w-xl">
+          
+            <div class="flex m-2 p-2 justify-start border-b border-gray-300">
+              <input className="w-100text-lg outline-none text-gray-600 placeholder-gray-500 focus:placeholder-gray-400" placeholder="Enter city name..." onKeyPress={handleKeyPress}></input>
+            </div>
+            {buildCurrentCard()}
+          
+        </main> 
+      </div>    
       <Row className="row-cols-md-8">
         {buildCards()}
       </Row>

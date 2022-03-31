@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.bg-warm {
+  background-image: url("https://live.staticflickr.com/3812/8922648980_53ab3dfeb2_b.jpg")
+}
+
+.bg-cold {
+  background-image: url("https://www.rochesterfirst.com/wp-content/uploads/sites/66/2021/04/storm-466677_1920.jpg?w=900")
+}
+
+.bg {
+  background-image: url("https://cdn.agriland.ie/uploads/2015/12/nice-sunset-grange1.jpg")
+}
