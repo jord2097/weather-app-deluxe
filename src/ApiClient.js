@@ -30,13 +30,6 @@ export class ApiClient {
         return this.getItems(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=4340a8146e26f2d7d6d12e60ecf0ecc3`);
     }
 
-    
-
-    
-
-
-    
-
 
 
 }

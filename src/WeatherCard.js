@@ -31,13 +31,24 @@ function WeatherCard(props){
         <Card className="mx-auto text-center mt-2">
             <Card.Header>{dayText}{" "}{date}{" "}{monthText}</Card.Header>
             <Card.Body>
-                <Image className="mx-auto" src={icon} alt={props.description}></Image>
+                <Image className="mx-auto drop-shadow-xl contrast-75 " src={icon} alt={props.description}></Image>
                 <Card.Text>{props.description} <hr /></Card.Text>
-                <Card.Text>Sunrise: {get24HrTime(props.sunrise)} BST</Card.Text>
-                <Card.Text>Sunset: {get24HrTime(props.sunset)} BST</Card.Text>
-                <Card.Text>Lowest Temp: {minTemp}°C </Card.Text>
-                <Card.Text>Highest Temp: {maxTemp}°C</Card.Text>
-                <Card.Text>Wind Speed: {wind}mph</Card.Text>
+                {/* <Card.Text>Sunrise: {get24HrTime(props.sunrise)} BST</Card.Text>
+                <Card.Text>Sunset: {get24HrTime(props.sunset)} BST</Card.Text> */}                
+                <Card.Text>
+                    <span className="wi wi-sunrise text-xl mr-2"></span>
+                    {get24HrTime(props.sunrise)}/{get24HrTime(props.sunset)}
+                    </Card.Text>
+                <Card.Text>
+                    <span className="wi wi-thermometer text-xl mr-2"></span>
+                    {minTemp}/{maxTemp}°C 
+                    </Card.Text>
+                <Card.Text>
+                    <span className="wi wi-strong-wind text-xl mr-2"></span>
+                    {wind} m / s
+                </Card.Text>
+                
+                
             </Card.Body>
         </Card>
     

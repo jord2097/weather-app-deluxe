@@ -27,22 +27,22 @@ function CurrentCard(props) {
     const wind = Math.round(props.wind, 1)
 
     return (
-    <div className="shadow-xl rounded-lg h-auto overflow-hidden max-w-2xl m-auto divide-y-2 divide-light-blue-400">
+    <div className="shadow-xl rounded-lg h-auto overflow-hidden max-w-2xl m-auto divide-y-2 divide-light-blue-400 card-main">
         <div className="m-5">
             <div className="sm mt-6 my-10">
-                <p className="tracking-tight text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-orange-700">{props.city}, {props.country}</p>
+                <p className="tracking-tight text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-orange-500">{props.city}, {props.country}</p>
                 <div className="flex flex-wrap my-2">
-                <p className="flex-auto text-gray-500 tracking-wide font-bold">
+                <p className="flex-auto text-auto tracking-wide font-bold">
                     {props.description}
                 </p>
-                <p className="text-gray-500 tracking-wide">
+                <p className="text-auto tracking-wide">
                     {dayText}{" "}{date}{" "}{monthText}
                 </p>
                 </div>               
             </div>
             <div className="flex my-6 h-auto tracking-wide">
-                <div className="text-gray-500 text-left flex-auto m-auto">
-                    <span className="text-5xl font-mono bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-red-700">{minTemp}/{maxTemp}°C</span>
+                <div className="text-auto text-left flex-auto m-auto">
+                    <span className="text-5xl font-mono bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-red-600">{minTemp}/{maxTemp}°C</span>
                     <span className="mt-2 flex flex-col tracking-wide">feels like {feelsLike}°C</span>
                     {""}
                 </div>
@@ -50,7 +50,7 @@ function CurrentCard(props) {
                     <Image src={icon} alt={props.description} />
                 </div>
             </div>
-            <div className="flex my-2 text-gray-500">
+            <div className="flex my-2 text-auto">
                 <span className="tracking-wide mr-4">
                     <span className="wi wi-strong-wind text-xl mr-2"></span>
                     {wind} m/s
@@ -60,7 +60,7 @@ function CurrentCard(props) {
                     {props.humidity}%
                 </span>                
             </div>
-            <div className="flex my-2 text-gray-500">
+            <div className="flex my-2 text-auto">
                 <span className="tracking-wide mr-4">
                     <span className="wi wi-sunrise text-xl mr-2"></span>
                     {get24HrTime(props.sunrise)}
